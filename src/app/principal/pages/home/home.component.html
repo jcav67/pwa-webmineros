@@ -1,0 +1,104 @@
+<!--
+  <mat-drawer-container fullscreen>
+  <mat-sidenav #sidenav mode="push"> 
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large  w3-padding-large w3-hover-white w3-large w3-green"
+      href="javascript:void(0);" (click)="toggle()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button  w3-hide-small w3-padding-large w3-white">Home</a>
+    <a routerLink="/home/formularios" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Formularios</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Mapa interactivo</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Registro de actividad</a>
+    <a href="#" class="w3-right w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Cerrar sesión</a>
+    <a href="#about" class="w3-right w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+      Perfil
+    </a>
+  </mat-sidenav>
+  <mat-toolbar>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+  </mat-toolbar>
+</mat-drawer-container>
+-->
+<!-- Navbar -->
+<div class="w3-top " style="z-index: 1000;">
+  <div class="w3-bar w3-green w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large  w3-padding-large w3-hover-white w3-large w3-green"
+      href="javascript:void(0);" (click)="toggle()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a routerLink="/home" class="w3-bar-item w3-button  w3-hide-small w3-padding-large w3-white">Home</a>
+    <a routerLink="/home/formularios" *ngIf="usuarioAuth" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Formularios</a>
+    <a routerLink="/home/mapas"   class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Mapa interactivo</a>
+    <a routerLink="/home" *ngIf="usuarioAuth" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Registro de actividad</a>    
+    <a routerLink="/auth/entrar" *ngIf="! usuarioAuth" class="w3-right w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Iniciar Sesión</a>
+    <a routerLink="/auth/registro" *ngIf="! usuarioAuth" class="w3-right w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Registrarse</a>
+    <a (click)="logout()" *ngIf="usuarioAuth" class="w3-right w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Cerrar sesión</a>
+    <a  routerLink="/home" *ngIf="usuarioAuth"   class="w3-right w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+      {{usuario.nombre }}
+    </a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a routerLink="/home" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a routerLink="/home/formularios" *ngIf="usuarioAuth"  class="w3-bar-item w3-button w3-padding-large">Formularios</a>
+    <a routerLink="/home/mapas" class="w3-bar-item w3-button w3-padding-large">Mapa interactivo</a>
+    <a routerLink="/home" *ngIf="usuarioAuth" class="w3-bar-item w3-button w3-padding-large">Registro de actividad</a>
+    <br>
+    <hr>
+    <a routerLink="/home" *ngIf="usuarioAuth"   class="w3-bar-item w3-button w3-padding-large">{{usuario.nombre }}</a>
+    <a (click)="logout()" *ngIf="usuarioAuth" class="w3-bar-item w3-button w3-padding-large">Cerrar sesión</a>
+    <a routerLink="/auth/registro"  *ngIf="! usuarioAuth" class="w3-bar-item w3-button w3-padding-large">Registro de usuario</a>
+    <a routerLink="/auth/entrar" *ngIf="! usuarioAuth" class="w3-bar-item w3-button w3-padding-large">Iniciar Sesión</a>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+
+<hr>
+
+<footer class="w3-container w3-padding-64 w3-center ">
+  <div class="w3-xlarge w3-padding-32">
+    <a
+      href="https://www.datos.gov.co/Minas-y-Energ-a/ANM-RUCOM-Explotador-Minero-Autorizado-Mineros-de-/i2mm-hwz3/data">
+      <img src="https://www.anm.gov.co/sites/default/files/sello_de_excelencia.png" alt="Logo" style="width:80px;">
+    </a>
+    <a class="navbar-brand" href="https://www.anm.gov.co/?q=genesis" target="_blank">
+      <img src="https://www.anm.gov.co/sites/default/files/carrusel_nuevas_estrategias/icono_genesis.png" alt="Logo"
+        style="width:100px;"></a>
+    <a class="navbar-brand" href="https://www.anm.gov.co/?q=anna-mineria" target="_blank">
+      <img src="https://www.anm.gov.co/sites/default/files/carrusel_nuevas_estrategias/icono_anna_mineria.png"
+        alt="Logo" style="width:100px;"></a>
+    <a class="navbar-brand" href="https://www.anm.gov.co/?q=veta" target="_blank">
+      <img src="https://www.anm.gov.co/sites/default/files/carrusel_nuevas_estrategias/icono_veta.png" alt="Logo"
+        style="width:80px;"></a>
+    <a class="navbar-brand" href="https://www.anm.gov.co/?q=observatorio-proyectos-de-interes-nacional" target="_blank">
+      <img src="https://www.anm.gov.co/sites/default/files/carrusel_nuevas_estrategias/icono_observatorio.png"
+        alt="Logo" style="width:100px;"></a>
+    <a   class="navbar-brand" href="https://www.anm.gov.co/" target="_blank">
+      <img src="https://www.anm.gov.co/sites/default/files/logo-agencia-nacional-mineria.png" 
+        alt="Logo" style="width:100px;"></a>
+    
+    <a class="navbar-brand" href="https://www1.upme.gov.co/Paginas/default.aspx" target="_blank">
+      <img src="https://bdigital.upme.gov.co/image/logo-upme.png"  alt="Logo"
+        style="width:100px;"> </a>
+
+    <a  class="navbar-brand" href="https://www.corantioquia.gov.co/Paginas/Inicio.aspx" target="_blank">
+      <img src="https://www.corantioquia.gov.co/Style%20Library/Imagenes/logo-corantioquia-3.png"
+        alt="Logo" style="width:100px;"> </a>
+
+    <a  class="navbar-brand"href="https://acmineria.com.co/" target="_blank">
+      <img src="https://www.cerrejon.com/wp-content/uploads/2018/02/ACM-logo.png"  alt="Logo"
+        style="width:100px;"> </a>
+
+  </div>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>

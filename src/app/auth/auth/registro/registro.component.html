@@ -1,0 +1,46 @@
+<div [@routerTransition] class="login-page">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img class="user-avatar" src="../../../../assets/otras/Tamy.jpg   " width="43%" height="40%" />
+            <h1>Iniciar Sesión</h1>
+            <form [formGroup]="formRegistro">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input [placeholder]="'Ingrese su nombre' " formControlName='nombre'
+                            class="form-control input-underline input-lg" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <input [placeholder]="'Ingrese su apellido' " formControlName='apellido'
+                            class="form-control input-underline input-lg" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <input [placeholder]="'Email' " formControlName='email'
+                            class="form-control input-underline input-lg" type="text" />
+                    </div>
+
+                    <div class="form-group">
+                        <input [placeholder]="'Password' " formControlName='password'
+                        data-placement="top" data-trigger="manual" data-content="La contraseña debe tener entre 6 y 16 caracteres, se recomienda usar mayúsuculas, minúsculas y caracteres especiales"
+                            class="form-control input-underline input-lg" type="password" />
+                    </div>
+
+                    <div class="form-group">
+                        <input [placeholder]="'Password' " formControlName='valPassword'
+                        data-placement="top" data-trigger="manual" data-content="La contraseña debe tener entre 6 y 16 caracteres, se recomienda usar mayúsuculas, minúsculas y caracteres especiales"
+                        class="form-control input-underline input-lg" type="password" />
+                        <span class="form-text text-danger" 
+                        *ngIf="confirmarPassword()">
+                        Las contraseñas deben coincidir
+                    </span>
+                    </div>
+                </div>
+                <button (click)="registrar()" [disabled]="formRegistro.invalid" class="btn rounded-btn">
+                    Registrarse
+                </button>
+                &nbsp;
+                <a routerLink="/home" class="btn rounded-btn">Cancelar</a>
+
+            </form>
+        </div>
+    </div>
+</div>

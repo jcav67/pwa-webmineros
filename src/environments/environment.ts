@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrlAuth:'https://webappmineros.herokuapp.com/api/auth/',
+  baseUrlQuerys:'https://webappmineros.herokuapp.com/api/querys'
 };
 
 /*

@@ -1,0 +1,66 @@
+<!-- Header -->
+<header class="w3-container w3-green w3-center" style="padding:128px 16px; z-index: -50;">
+    <h3>El minero de subsistencia, tan legal como la pequeña, mediana y gran minería en Colombia</h3>
+    <ngb-carousel *ngIf="images" >
+        <ng-template ngbSlide >
+            <div class="picsum-img-wrapper" >
+                <img [src]="images[0]" alt="Random first slide">
+            </div>
+            <div class="carousel-caption">
+                <h3 style="font-weight: bold;">First slide label</h3>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[1]" alt="Random second slide">
+            </div>
+            <div class="carousel-caption">
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]=" images[2]" alt="Random third slide">
+            </div>
+            <div class="carousel-caption">
+                <h3>Third slide label</h3>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+    Slide 1 of 3
+
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content">
+        <div class="w3-container">
+            <h1>Videos de interés</h1>
+            <h3 class="w3-padding-32">A continuación podrá encontrar videos de interes referentes al sector minero.
+            </h3>
+            <div class="w3-row">
+            <div class="w3-third w3-center">
+                <iframe width="264" height="142" src="https://www.youtube.com/embed/jAygTwZE6CA"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+            </div>
+            <div class="w3-third w3-center">
+                <iframe width="264" height="142" src="https://www.youtube.com/embed/wNnpqalGnYw"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="w3-third w3-center">
+                <iframe width="264" height="142" src="https://www.youtube.com/embed/xT_WERoQyM4"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+        </div>
+    </div>
