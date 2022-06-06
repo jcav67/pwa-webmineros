@@ -2,10 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { circle, latLng, polygon, tileLayer } from 'leaflet';
 import * as L from 'leaflet';
-import { AuthService } from '../../../auth/auth/servicios/auth.service';
-import { GeoJsonObject } from 'geojson';
-import { GeoJSONGIS } from '../../../auth/interfaces/geojson.interface';
-import { map } from 'rxjs/operators';
 // declare const L: any;
 
 @Component({

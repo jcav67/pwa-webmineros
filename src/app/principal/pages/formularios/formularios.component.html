@@ -1,473 +1,1513 @@
 <div>
-    <mat-vertical-stepper style="margin-top: 40px;" >
-        <mat-step label="Datos básicos minero de subsistencia">
-            <div class="container">
-                <p>
-                    <span style="font-weight: bold;">
-                        Información personal del usuario que desea registrar su actividad de minero de subsistencia
-                    </span>
+  <mat-vertical-stepper style="margin-top: 40px">
+    <mat-step label="Datos básicos minero de subsistencia">
+      <div class="container">
+        <p>
+          <span style="font-weight: bold">
+            Información personal del usuario que desea registrar su actividad de
+            minero de subsistencia
+          </span>
+        </p>
 
-                </p>
+        <form autocomplete="off" [formGroup]="datosBasicos">
+          <!--Nombre-->
+          <mat-card>
+            <mat-card-title> Nombre </mat-card-title>
+            <mat-card-content>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="nombre"
+                placeholder="Nombre de la persona"
+              />
+              <span
+                class="form-text text-danger"
+                *ngIf="validarCampo('nombre')"
+              >
+                Campo requerido *
+              </span>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <!-- Apellido -->
+          <mat-card>
+            <mat-card-title> Apellido </mat-card-title>
+            <mat-card-content>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="apellido"
+                placeholder="Apellido"
+              />
+              <span
+                class="form-text text-danger"
+                *ngIf="validarCampo('nombre')"
+              >
+                Campo requerido *
+              </span>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <!--email-->
+          <mat-card>
+            <mat-card-title> Correo electronico </mat-card-title>
+            <mat-card-content>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="email"
+                placeholder="ejemplo: yo@correo.com"
+              />
+              <span class="form-text text-danger" *ngIf="validarCampo('email')">
+                Campo requerido *
+              </span>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <!--Telefono-->
+          <mat-card>
+            <mat-card-title> Ingrese su número celular o fijo </mat-card-title>
+            <mat-card-content>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="telefono"
+                placeholder="Ingrese su número de contacto"
+              />
+              <span
+                class="form-text text-danger"
+                *ngIf="validarCampo('telefono')"
+              >
+                Campo requerido *
+              </span>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <!--TipoDOcumento-->
+          <mat-card>
+            <mat-card-title> Tipo de documento de identidad </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="tipoDocumento"
+                  value="cedula ciudadania"
+                  id="RadioCedulaCiud"
+                />
+                <label class="form-check-label" for="RadioCedulaCiud">
+                  Cédula de ciudadanía
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  value="cedula extranjeria"
+                  formControlName="tipoDocumento"
+                  id="RadioCedulaEx"
+                />
+                <label class="form-check-label" for="RadioCedulaEx">
+                  Cédula de extranjería
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  value="Pasaporte"
+                  formControlName="tipoDocumento"
+                  id="RadioPasaporte"
+                />
+                <label class="form-check-label" for="RadioPasaporte">
+                  Pasaporte
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  value="Adulto sin identificacion"
+                  formControlName="tipoDocumento"
+                  id="RadioSinIdentificacion"
+                />
+                <label class="form-check-label" for="RadioSinIdentificacion">
+                  Adulto sin Identificación
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <!--Numero de documento-->
+          <mat-card>
+            <mat-card-title> Ingrese su número de Documento </mat-card-title>
+            <mat-card-content>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="numDocumento"
+                placeholder="Ingrese su número de contacto"
+              />
+              <span
+                class="form-text text-danger"
+                *ngIf="validarCampo('numDocumento')"
+              >
+                Campo requerido *
+              </span>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <!--TipoPersona-->
+          <mat-card>
+            <mat-card-title> Tipo Persona </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="tipoPersona"
+                  value="juridica"
+                  id="RadioPersonaJuridica"
+                />
+                <label class="form-check-label" for="RadioPersonaJuridica">
+                  Jurídica (Actúa a través de su representante legal para
+                  contraer obligaciones, empresarios)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="tipoPersona"
+                  value="Natural"
+                  id="RadioPersonaNatural"
+                />
+                <label class="form-check-label" for="RadioPersonaNatural">
+                  Natural (Persona humana que ejerce derechos y cumple
+                  obligaciones a título personal)
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
 
-                <form autocomplete="off" [formGroup]="datosBasicos">
-                    <!--Nombre-->
-                    <mat-card>
-                        <mat-card-title>
-                            Nombre completo
-                        </mat-card-title>
-                        <mat-card-content>
-                            <input class="form-control" type="text" formControlName="nombre"
-                                placeholder="Nombre de la persona" > 
-                            <span class="form-text text-danger" *ngIf="validarCampo('nombre')">
-                                Campo requerido *
-                            </span>
-                        </mat-card-content>
-                    </mat-card>
-                    <br>
-                    <!--email-->
-                    <mat-card>
-                        <mat-card-title>
-                            Correo electronico
-                        </mat-card-title>
-                        <mat-card-content>
-                            <input class="form-control" type="text" formControlName="email"
-                                placeholder="ejemplo: yo@correo.com">
-                            <span class="form-text text-danger" *ngIf="validarCampo('email')">
-                                Campo requerido *
-                            </span>
-                        </mat-card-content>
-                    </mat-card>
-                    <br>
-                    <!--Telefono-->
-                    <mat-card>
-                        <mat-card-title>
-                            Ingrese su número celular o fijo
-                        </mat-card-title>
-                        <mat-card-content>
-                            <input class="form-control" type="text" formControlName="telefono"
-                                placeholder="Ingrese su número de contacto">
-                            <span class="form-text text-danger" *ngIf="validarCampo('telefono')">
-                                Campo requerido *
-                            </span>
-                        </mat-card-content>
-                    </mat-card>
-                    <br>
-                    <!--TipoDOcumento-->
-                    <mat-card>
-                        <mat-card-title>
-                            Tipo de documento de identidad
-                        </mat-card-title>
-                        <mat-card-content>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" formControlName="tipoDocumento"
-                                    value="cedula ciudadania" id="RadioCedulaCiud">
-                                <label class="form-check-label" for="RadioCedulaCiud">
-                                    Cédula de ciudadanía
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="cedula extranjeria"
-                                    formControlName="tipoDocumento" id="RadioCedulaEx">
-                                <label class="form-check-label" for="RadioCedulaEx">
-                                    Cédula de extranjería
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="Pasaporte"
-                                    formControlName="tipoDocumento" id="RadioPasaporte">
-                                <label class="form-check-label" for="RadioPasaporte">
-                                    Pasaporte
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" value="Adulto sin identificacion"
-                                    formControlName="tipoDocumento" id="RadioSinIdentificacion">
-                                <label class="form-check-label" for="RadioSinIdentificacion">
-                                    Adulto sin Identificación
-                                </label>
-                            </div>
-                        </mat-card-content>
-                    </mat-card>
-                    <br>
-                    <!--Numero de documento-->
-                    <mat-card>
-                        <mat-card-title>
-                            Ingrese su número de Documento
-                        </mat-card-title>
-                        <mat-card-content>
-                            <input class="form-control" type="text" formControlName="numDocumento"
-                                placeholder="Ingrese su número de contacto">
-                            <span class="form-text text-danger" *ngIf="validarCampo('numDocumento')">
-                                Campo requerido *
-                            </span>
-                        </mat-card-content>
-                    </mat-card>
-                    <br>
-                    <!--TipoPersona-->
-                    <mat-card>
-                        <mat-card-title>
-                            Tipo Persona
-                        </mat-card-title>
-                        <mat-card-content>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" formControlName="tipoPersona"
-                                    value="juridica" id="RadioPersonaJuridica">
-                                <label class="form-check-label" for="RadioPersonaJuridica">
-                                    Jurídica (Actúa a través de su representante legal para contraer obligaciones,
-                                    empresarios)
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" formControlName="tipoPersona"
-                                    value="Natural" id="RadioPersonaNatural">
-                                <label class="form-check-label" for="RadioPersonaNatural">
-                                    Natural (Persona humana que ejerce derechos y cumple obligaciones a título personal)
-                                </label>
-                            </div>
-                        </mat-card-content>
-                    </mat-card>
+          <br />
 
-                    <br>
+          <mat-card>
+            <mat-card-title> Género </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="genero"
+                  value="Masculino"
+                  id="RadioGeneroMasculino"
+                />
+                <label class="form-check-label" for="RadioGeneroMasculino">
+                  Masculino/ Hombre
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="genero"
+                  value="Femenino"
+                  id="RadioGeneroFemenino"
+                />
+                <label class="form-check-label" for="RadioGeneroFemenino">
+                  Femenino/Mujer
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="genero"
+                  value="Otro"
+                  id="RadioGeneroOtro"
+                />
+                <label class="form-check-label" for="RadioGeneroOtro">
+                  Otro
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
 
-                    <mat-card>
-                        <mat-card-title>
-                            Género
-                        </mat-card-title>
-                        <mat-card-content>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" formControlName="genero" value="Masculino"
-                                    id="RadioGeneroMasculino">
-                                <label class="form-check-label" for="RadioGeneroMasculino">
-                                    Masculino/ Hombre
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" formControlName="genero" value="Femenino"
-                                    id="RadioGeneroFemenino">
-                                <label class="form-check-label" for="RadioGeneroFemenino">
-                                    Femenino/Mujer
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" formControlName="genero" value="Otro"
-                                    id="RadioGeneroOtro">
-                                <label class="form-check-label" for="RadioGeneroOtro">
-                                    Otro
-                                </label>
-                            </div>
-                        </mat-card-content>
-                    </mat-card>
-
-                    <br>
-
-                   
-                </form>
-                <div class="mb-3 row">
-                    <div class="col-sm-3 "></div>
-                    <div class="col-sm-9">
-                        <button type="button" (click)="guardarValores()" class="btn btn-primary float-end">
-                            Guardar avance
-                        </button>
-
-                    </div>
-                </div>
+          <br />
+        </form>
+        <div class="mb-3 row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-9">
+            <button
+              type="button"
+              (click)="guardarValores()"
+              class="btn btn-success float-end"
+            >
+              Guardar avance
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step label="Formulario técnico">
+      <div class="container">
+        <h3>Tipos de mineros de subsistencia en Colombia</h3>
+        <img
+          src="../../../../assets/formularios/TiposMineros.jpg"
+          alt="Tipos de mineros en colombia"
+          width="50%"
+          height="75%"
+        />
+        <br />
+        <form [formGroup]="formTecnico">
+          <mat-card>
+            <mat-card-title> Tipo de minero </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="barequero"
+                  type="checkbox"
+                  id="chackBarequero"
+                />
+                <label class="form-check-label" for="chackBarequero">
+                  Barequero
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="chatarrero"
+                  type="checkbox"
+                  id="checkChatarrero"
+                />
+                <label class="form-check-label" for="checkChatarrero">
+                  Chatarrero
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="otroTipoMinero"
+                  type="checkbox"
+                  id="checkOtroTipo"
+                />
+                <label class="form-check-label" for="checkOtroTipo">
+                  Otro tipo de minero
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title>
+              ¿Qué tipo de mineral y/o materiales extrae?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="metalOro"
+                  type="checkbox"
+                  id="checkMetalesOro"
+                />
+                <label class="form-check-label" for="checkMetalesOro">
+                  Metales Preciosos - Oro
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="metalPlata"
+                  type="checkbox"
+                  id="checkMetalesPlata"
+                />
+                <label class="form-check-label" for="checkMetalesPlata">
+                  Metales Preciosos - Plata
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="metalPlatino"
+                  type="checkbox"
+                  id="checkMetalesPlatino"
+                />
+                <label class="form-check-label" for="checkMetalesPlatino">
+                  Metales Preciosos - Platino
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="materialArenaGrava"
+                  type="checkbox"
+                  id="checkMaterialArenaGrava"
+                />
+                <label class="form-check-label" for="checkMaterialArenaGrava">
+                  Arenas y gravas de río (Destinados a la industria de la
+                  construcción)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="materialArcilla"
+                  type="checkbox"
+                  id="checkMaterialArcillaa"
+                />
+                <label class="form-check-label" for="checkMaterialArcilla">
+                  Arcilla
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="piedraPreciosaEsmeralda"
+                  type="checkbox"
+                  id="checkpiedraPreciosaEsmeralda"
+                />
+                <label
+                  class="form-check-label"
+                  for="checkpiedraPreciosaEsmeralda"
+                >
+                  Piedras preciosas - Esmeralda
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="piedraPreciosaMorallas"
+                  type="checkbox"
+                  id="checkpiedraPreciosaMorallas"
+                />
+                <label
+                  class="form-check-label"
+                  for="checkpiedraPreciosaMorallas"
+                >
+                  Piedras preciosas - Morallas
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="tipoOtro"
+                  type="checkbox"
+                  id="checktipoOtro"
+                />
+                <label class="form-check-label" for="checktipoOtro">
+                  Otro tipo de mineral y/o material
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title>
+              El trabajo de subsistencia solo es legal si usa metodos manuales
+            </mat-card-title>
+          </mat-card>
+          <mat-card-content>
+            <img
+              src="../../../../assets/formularios/condiciones.jpg"
+              alt="EL TRABAJO DE SUBSISTENCIA SOLO ES LEGAL SI USA METODOS MANUALES"
+              height="300px"
+            />
+          </mat-card-content>
+          <br />
+          <mat-card>
+            <mat-card-title>
+              ¿Cuál es su producción mensual según los límites permitidos para
+              ser considerado minero de subsistencia?
+            </mat-card-title>
+            <mat-card-content>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="prodMensual"
+                placeholder="Ingrese su producción según la tabla anterior"
+              />
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <div class="mb-3 row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9">
+              <button
+                type="button"
+                (click)="GuardarTecnico()"
+                class="btn btn-success float-end"
+              >
+                Guardar avance
+              </button>
             </div>
-        </mat-step>
-        <mat-step label="Datos básicos minero de subsistencia" >
-            <div class="container">
-                <h3>Tipos de mineros de subsistencia en Colombia</h3>
-                <img src="../../../../assets/formularios/TiposMineros.jpg" alt="Tipos de mineros en colombia"
-                    width="50%" height="75%">
-                    <br>
-                <form [formGroup]="formTecnico">
-                    <mat-card>
-                        <mat-card-title>
-                            Tipo de minero
-                        </mat-card-title>
-                        <mat-card-content>
-                            <div class="form-check">
-                                <input class="form-check-input" formControlName="barequero" type="checkbox"
-                                    id="chackBarequero">
-                                <label class="form-check-label" for="chackBarequero">
-                                    Barequero
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" formControlName="chatarrero" type="checkbox"
-                                    id="checkChatarrero">
-                                <label class="form-check-label" for="checkChatarrero">
-                                    Chatarrero
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" formControlName="otroTipoMinero" type="checkbox"
-                                    id="checkOtroTipo">
-                                <label class="form-check-label" for="checkOtroTipo">
-                                    Otro tipo de minero
-                                </label>
-                            </div>
-                        </mat-card-content>
-                    </mat-card>
-                    <br>
-                    <mat-card>
-                        <mat-card-title>
-                            ¿Qué tipo de mineral y/o materiales extrae?
-                        </mat-card-title>
-                        <mat-card-content>
-                            <div class="form-check">
-                                <input class="form-check-input" formControlName="metalOro" type="checkbox"
-                                    id="checkMetalesOro">
-                                <label class="form-check-label" for="checkMetalesOro">
-                                    Metales Preciosos - Oro
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" formControlName="metalPlata" type="checkbox"
-                                    id="checkMetalesPlata">
-                                <label class="form-check-label" for="checkMetalesPlata">
-                                    Metales Preciosos - Plata
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" formControlName="metalPlatino" type="checkbox"
-                                    id="checkMetalesPlatino">
-                                <label class="form-check-label" for="checkMetalesPlatino">
-                                    Metales Preciosos - Platino
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" formControlName="materialArenaGrava" type="checkbox"
-                                    id="checkMaterialArenaGrava">
-                                <label class="form-check-label" for="checkMaterialArenaGrava">
-                                    Arenas y gravas de río (Destinados a la industria de la construcción)
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" formControlName="materialArcilla" type="checkbox"
-                                    id="checkMaterialArcillaa">
-                                <label class="form-check-label" for="checkMaterialArcilla">
-                                    Arcilla
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" formControlName="piedraPreciosaEsmeralda"
-                                    type="checkbox" id="checkpiedraPreciosaEsmeralda">
-                                <label class="form-check-label" for="checkpiedraPreciosaEsmeralda">
-                                    Piedras preciosas - Esmeralda
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" formControlName="piedraPreciosaMorallas" type="checkbox"
-                                    id="checkpiedraPreciosaMorallas">
-                                <label class="form-check-label" for="checkpiedraPreciosaMorallas">
-                                    Piedras preciosas - Morallas
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" formControlName="tipoOtro" type="checkbox"
-                                    id="checktipoOtro">
-                                <label class="form-check-label" for="checktipoOtro">
-                                    Otro tipo de mineral y/o material
-                                </label>
-                            </div>
-                        </mat-card-content>
-                    </mat-card>
-                    <br>
-                    <mat-card>
-                        <mat-card-title>
-                            El trabajo de subsistencia solo es legal si usa metodos manuales
-                        </mat-card-title>
-                    </mat-card>
-                    <mat-card-content>
-                        <img src="../../../../assets/formularios/condiciones.jpg"
-                            alt="EL TRABAJO DE SUBSISTENCIA SOLO ES LEGAL SI USA METODOS MANUALES" height="300px">
-                    </mat-card-content>
-                    <br>
-                    <mat-card>
-                        <mat-card-title>
-                            ¿Cuál es su producción mensual según los límites permitidos para ser considerado minero de
-                            subsistencia?
-                        </mat-card-title>
-                        <mat-card-content>
-                            <input class="form-control" type="text" formControlName="prodMensual"
-                                placeholder="Ingrese su producción según la tabla anterior">
-                        </mat-card-content>
-                    </mat-card>
-                    <div class="mb-3 row">
-                        <div class="col-sm-3 "></div>
-                        <div class="col-sm-9">
-                            <button type="button" (click)="guardarValores()" class="btn btn-primary float-end">
-                                Guardar avance
-                            </button>
-    
-                        </div>
-                    </div>
-                </form>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+    <!--Form Economico-->
+    <mat-step label="Formulario Económico">
+      <form [formGroup]="formEconomico">
+        <mat-card>
+          <mat-card-title>
+            ¿Hace cuántos años realiza la actividad de minería de subsistencia?
+          </mat-card-title>
+          <mat-card-content>
+            <div class="col-2">
+              <input
+                class="form-control"
+                type="number"
+                formControlName="añosLaborados"
+                placeholder="Ingrese su número de contacto"
+                min="0"
+                max="99"
+              />
             </div>
-        </mat-step>
-        <!--Form Economico-->
-        <mat-step label="Formulario Económico">
-            <form [formGroup]="formEconomico">
-                <mat-card>
-                    <mat-card-title>
-                        ¿Hace cuántos años realiza la actividad de minería de subsistencia?
-                    </mat-card-title>
-                    <mat-card-content>
-                        <div class="col-2">
-                            <input class="form-control" type="number" formControlName="añosLaborados"
-                                placeholder="Ingrese su número de contacto" min="0" max="99">
-                        </div>
-                        <div class="col-3">
-                            <span>Año(s)</span>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
-                <br>
-                <mat-card>
-                    <mat-card-title>
-                        Escriba cuántos días labora al mes en la actividad de minería de subsistencia.
-                    </mat-card-title>
-                    <mat-card-content>
-                        <div class="col-2">
-                            <input class="form-control" type="number" formControlName="diasMensual"
-                                placeholder="Ingrese el aproximado de números laborados en el mes" min="0" max="31">
-                        </div>
-                        <div class="col-3">
-                            <span>Día(s)</span>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
-                <br>
-                <mat-card>
-                    <mat-card-title>
-                        Escriba los ingresos mensuales por su actividad minería en pesos.
-                    </mat-card-title>
-                    <mat-card-content>
-                        <div class="col-2">
-                            <input class="form-control" type="number" formControlName="ingresoMensual"
-                                placeholder="Ingrese el aproximado de sus ingresos mensuales" min="0" max="999999999">
-                        </div>
-                    </mat-card-content>
-                </mat-card>
-                <br>
-                <mat-card>
-                    <mat-card-title>
-                        Escriba cuantas personas conforman su grupo familiar.
-                    </mat-card-title>
-                    <mat-card-content>
-                        <div class="col-2">
-                            <input class="form-control" type="number" formControlName="tamañoFamilia"
-                                placeholder="Ingrese el número de familiares" min="0" max="50">
-                        </div>
-                    </mat-card-content>
-                </mat-card>
-                <br>
-                <!--Compra y/o venta-->
-                <mat-card>
-                    <mat-card-title>
-                        ¿Compra y/o vende minerales a los otros mineros?
-                    </mat-card-title>
-                    <mat-card-content>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" formControlName="compraotros" value="Si"
-                                id="RadioSiCompro">
-                            <label class="form-check-label" for="RadioSiCompro">
-                                Sí, compro mineral
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" formControlName="compraotros" value="No"
-                                id="RadioNoCompro">
-                            <label class="form-check-label" for="RadioNoCompro">
-                                No, compro mineral
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" formControlName="compraotros" value="Ocacional"
-                                id="RadioOcacionalCompro">
-                            <label class="form-check-label" for="RadioOcacionalCompro">
-                                Ocacionalmente lo hago
-                            </label>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
-
-                <br>
-                <mat-card *ngIf="validarVentaOtrosMineros()">
-                    <mat-card-title>
-                        Por favor, indique donde o en que lugar o lugares vende su mineral o material extraido.
-                    </mat-card-title>
-                    <mat-card-content>
-                        <div class="col-2">
-                            <input class="form-control" type="text" formControlName="lugarVenta"
-                                placeholder="Nombre lugar de venta" >
-                        </div>
-                    </mat-card-content>
-                </mat-card>
-                <div class="mb-3 row">
-                    <div class="col-sm-3 "></div>
-                    <div class="col-sm-9">
-                        <button type="button" (click)="guardarValores()" class="btn btn-primary float-end">
-                            Guardar avance
-                        </button>
-
-                    </div>
-                </div>
-            </form>
-
-        </mat-step>
-        <mat-step label="Minero Ambiental">
-            <div class="container">
-                <form [formGroup]="formMineroAmbiental">
-                    <mat-card>
-                        <mat-card-title>
-                            ¿Sabe leer y escribir?
-                        </mat-card-title>
-                        <mat-card-content>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" formControlName="leerEscribir" value="Si"
-                                    id="RadioSiLeer">
-                                <label class="form-check-label" for="RadioSiLeer">
-                                    Sí
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" formControlName="leerEscribir" value="No"
-                                    id="RadioNoLeer">
-                                <label class="form-check-label" for="RadioNoLeer">
-                                    No
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" formControlName="leerEscribir" value="Más o menos"
-                                    id="Radiomasmenos">
-                                <label class="form-check-label" for="Radiomasmenos">
-                                    Más o menos
-                                </label>
-                            </div>
-                        </mat-card-content>
-                    </mat-card>
-    
-                    <br>
-                    <div class="mb-3 row">
-                        <div class="col-sm-3 "></div>
-                        <div class="col-sm-9">
-                            <button type="button" (click)="guardar()" class="btn btn-primary float-end">
-                                Finalizar
-                            </button>
-
-                        </div>
-                    </div>
-                </form>
+            <div class="col-3">
+              <span>Año(s)</span>
             </div>
-        </mat-step>
+          </mat-card-content>
+        </mat-card>
+        <br />
+        <mat-card>
+          <mat-card-title>
+            Escriba cuántos días labora al mes en la actividad de minería de
+            subsistencia.
+          </mat-card-title>
+          <mat-card-content>
+            <div class="col-2">
+              <input
+                class="form-control"
+                type="number"
+                formControlName="diasMensual"
+                placeholder="Ingrese el aproximado de números laborados en el mes"
+                min="0"
+                max="31"
+              />
+            </div>
+            <div class="col-3">
+              <span>Día(s)</span>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <br />
+        <mat-card>
+          <mat-card-title>
+            Escriba los ingresos mensuales por su actividad minería en pesos.
+          </mat-card-title>
+          <mat-card-content>
+            <div class="col-2">
+              <input
+                class="form-control"
+                type="number"
+                formControlName="ingresoMensual"
+                placeholder="Ingrese el aproximado de sus ingresos mensuales"
+                min="0"
+                max="999999999"
+              />
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <br />
+        <mat-card>
+          <mat-card-title>
+            Escriba cuantas personas conforman su grupo familiar.
+          </mat-card-title>
+          <mat-card-content>
+            <div class="col-2">
+              <input
+                class="form-control"
+                type="number"
+                formControlName="tamañoFamilia"
+                placeholder="Ingrese el número de familiares"
+                min="0"
+                max="50"
+              />
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <br />
+        <!--Compra y/o venta-->
+        <mat-card>
+          <mat-card-title>
+            ¿Compra y/o vende minerales a los otros mineros?
+          </mat-card-title>
+          <mat-card-content>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                formControlName="compraotros"
+                value="1"
+                id="RadioSiCompro"
+              />
+              <label class="form-check-label" for="RadioSiCompro">
+                Sí, compro mineral
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                formControlName="compraotros"
+                value="0"
+                id="RadioNoCompro"
+              />
+              <label class="form-check-label" for="RadioNoCompro">
+                No, compro mineral
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                formControlName="compraotros"
+                value="-1"
+                id="RadioOcacionalCompro"
+              />
+              <label class="form-check-label" for="RadioOcacionalCompro">
+                Ocacionalmente lo hago
+              </label>
+            </div>
+          </mat-card-content>
+        </mat-card>
 
+        <br />
+        <mat-card *ngIf="validarVentaOtrosMineros()">
+          <mat-card-title>
+            Por favor, indique donde o en que lugar o lugares vende su mineral o
+            material extraido.
+          </mat-card-title>
+          <mat-card-content>
+            <div class="col-2">
+              <input
+                class="form-control"
+                type="text"
+                formControlName="lugarVenta"
+                placeholder="Nombre lugar de venta"
+              />
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <div class="mb-3 row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-9">
+            <button
+              type="button"
+              (click)="GuardarEconomico()"
+              class="btn btn-success float-end"
+            >
+              Guardar avance
+            </button>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step label="Minero social">
+      <div class="container">
+        <form [formGroup]="formMineroSocial">
+          <mat-card>
+            <mat-card-title> ¿Sabe leer y escribir? </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="leerEscribir"
+                  value="1"
+                  id="RadioSiLeer"
+                />
+                <label class="form-check-label" for="RadioSiLeer"> Sí </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="leerEscribir"
+                  value="0"
+                  id="RadioNoLeer"
+                />
+                <label class="form-check-label" for="RadioNoLeer"> No </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="leerEscribir"
+                  value="-1"
+                  id="Radiomasmenos"
+                />
+                <label class="form-check-label" for="Radiomasmenos">
+                  Más o menos
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title> Grado de escolaridad </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="gradoEscolaridad"
+                  value="Primaria"
+                  id="RadioPrimaria"
+                />
+                <label class="form-check-label" for="RadioPrimaria">
+                  Primaria
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="gradoEscolaridad"
+                  value="Secundaria"
+                  id="RadioSecundaria"
+                />
+                <label class="form-check-label" for="RadioSecundaria">
+                  Secundaria
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="gradoEscolaridad"
+                  value="Ninguno"
+                  id="RadioNinguno"
+                />
+                <label class="form-check-label" for="RadioNinguno">
+                  Ninguno
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="gradoEscolaridad"
+                  value="Otro"
+                  id="RadioOtro"
+                />
+                <label class="form-check-label" for="RadioOtro"> Otro </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title> Estado civil </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="estadoCivil"
+                  value="Casado"
+                  id="RadioCasado"
+                />
+                <label class="form-check-label" for="RadioCasado">
+                  Casado
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="estadoCivil"
+                  value="Soltero"
+                  id="RadioSoltero"
+                />
+                <label class="form-check-label" for="RadioSoltero">
+                  Soltero
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="estadoCivil"
+                  value="Union libre"
+                  id="RadioUnionlibre"
+                />
+                <label class="form-check-label" for="RadioUnionlibre">
+                  Union libre
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="estadoCivil"
+                  value="Viudo"
+                  id="RadioViudo"
+                />
+                <label class="form-check-label" for="RadioViudo"> Viudo </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title> Seleccione el tipo de vivienda </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="tipoVivienda"
+                  value="Propia"
+                  id="RadioPropia"
+                />
+                <label class="form-check-label" for="RadioPropia">
+                  Propia
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="tipoVivienda"
+                  value="Arrendada"
+                  id="RadioArrendada"
+                />
+                <label class="form-check-label" for="RadioArrendada">
+                  Arrendada
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="tipoVivienda"
+                  value="Invasion"
+                  id="RadioInvasion"
+                />
+                <label class="form-check-label" for="RadioInvasion">
+                  Invasión
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="tipoVivienda"
+                  value="Indefinida"
+                  id="RadioIndefinida"
+                />
+                <label class="form-check-label" for="RadioIndefinida">
+                  Indefinida
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title>
+              ¿Está afiliado a alguna asociación?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="afiliacion"
+                  value="Si"
+                  id="RadioSiafiliacion"
+                />
+                <label class="form-check-label" for="RadioSiafiliacion">
+                  Sí
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="afiliacion"
+                  value="No"
+                  id="RadioNoafiliacion"
+                />
+                <label class="form-check-label" for="RadioNoafiliacion">
+                  No
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="afiliacion"
+                  value="EnProceso"
+                  id="RadioEnProceso"
+                />
+                <label class="form-check-label" for="RadioEnProceso">
+                  En proceso de afiliación
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card *ngIf="validarAfiliacion()">
+            <mat-card-title>
+              ¿Está afiliado a alguna asociación?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="col">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="nombreAfiliacion"
+                  placeholder="Nombre de la filiacion"
+                />
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <div class="mb-3 row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9">
+              <button
+                type="button"
+                (click)="GuardarSocial()"
+                class="btn btn-success float-end"
+              >
+                Guardar avance
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </mat-step>
+    <mat-step label="Formulario Juridico">
+      <div class="container">
+        <p>
+          Se diligencia de acuerdo a lo ordenado en el código de minas
+          <br />
+          <span style="color: gray">
+            EL TRABAJO DEL MINERO DE SUBSISTENCIA SE PUEDE REALIZAR EN CUALQUIER
+            TIPO DE AFLUENTE HIDRICO A NIVEL NACIONAL, EXCEPTUANDO LOS QUE
+            CUENTAN CON RESTRICCIONES O PROHIBICIONES.
+          </span>
+        </p>
 
-    </mat-vertical-stepper>
+        <form autocomplete="off" [formGroup]="formJuridico">
+          <br />
+
+          <mat-card>
+            <mat-card-title> ¿Trabaja en propiedad pública? </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="trabPropPublica"
+                  value="Si"
+                  id="RadioSipropPublica"
+                />
+                <label class="form-check-label" for="RadioSipropPublica">
+                  Si
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="trabPropPublica"
+                  value="No"
+                  id="RadioNopropPublica"
+                />
+                <label class="form-check-label" for="RadioNocapacitacion">
+                  No
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="trabPropPublica"
+                  value="no lo se"
+                  id="RadionolosePropPublica"
+                />
+                <label class="form-check-label" for="RadionolosePropPublica">
+                  No lo sé
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card *ngIf="validarTrabajopropPublica()">
+            <mat-card-title>
+              ¿cómo se llama el sector donde ejerce su trabajo?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="col">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="SitrabPropPublica"
+                  placeholder="Nombre del sector donde trabaja"
+                />
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title> ¿Trabaja en propiedad del estado? </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="trabPropEstado"
+                  value="Si"
+                  id="RadioSipropEstado"
+                />
+                <label class="form-check-label" for="RadioSipropEstado">
+                  Si
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="trabPropEstado"
+                  value="No"
+                  id="RadioNopropEstado"
+                />
+                <label class="form-check-label" for="RadioNopropEstado">
+                  No
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="trabPropEstado"
+                  value="no lo se"
+                  id="RadioNolosepropEstado"
+                />
+                <label class="form-check-label" for="RadioNolosepropEstado">
+                  No lo sé
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card *ngIf="validarTrabajopropEstado()">
+            <mat-card-title>
+              ¿cómo se llama el sector donde ejerce su trabajo?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="col">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="SitrabPropEstado"
+                  placeholder="Nombre del sector donde trabaja"
+                />
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title>
+              ¿Trabaja en un área prohibida para la minería?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="trabPropProhibida"
+                  value="Si"
+                  id="RadioSipropProhibida"
+                />
+                <label class="form-check-label" for="RadioSipropProhibida">
+                  Si
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="trabPropProhibida"
+                  value="No"
+                  id="RadioNopropProhibida"
+                />
+                <label class="form-check-label" for="RadioNopropProhibida">
+                  No
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="trabPropProhibida"
+                  value="no lo se"
+                  id="RadioNolosepropProhibida"
+                />
+                <label class="form-check-label" for="RadioNolosepropProhibida">
+                  No lo sé
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card *ngIf="validarTrabajopropProhibida()">
+            <mat-card-title>
+              ¿cómo se llama el sector donde ejerce su trabajo?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="col">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="SitrabPropProhibida"
+                  placeholder="Nombre del sector donde trabaja"
+                />
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title>
+              ¿Trabaja en una zona de comunidad negra?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="trabPropcomNegra"
+                  value="Si"
+                  id="RadioSipropcomNegra"
+                />
+                <label class="form-check-label" for="RadioSipropcomNegra">
+                  Si
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="trabPropcomNegra"
+                  value="No"
+                  id="RadioNopropcomNegra"
+                />
+                <label class="form-check-label" for="RadioNopropcomNegra">
+                  No
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="trabPropcomNegra"
+                  value="no lo se"
+                  id="RadioNolosepropcomNegra"
+                />
+                <label class="form-check-label" for="RadioNolosepropcomNegra">
+                  No lo sé
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card *ngIf="validarTrabajopropcomNegra()">
+            <mat-card-title>
+              ¿cómo se llama el sector donde ejerce su trabajo?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="col">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="SitrabPropcomNegra"
+                  placeholder="Nombre del sector donde trabaja"
+                />
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title>
+              ¿Es vecino del lugar donde actualmente ejerce la minería de
+              subsistencia?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="vecinoLugarTrabajo"
+                  value="Si"
+                  id="RadioSivecinolugar"
+                />
+                <label class="form-check-label" for="RadioSivecinolugar">
+                  Si
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="vecinoLugarTrabajo"
+                  value="No"
+                  id="RadioNovecinolugar"
+                />
+                <label class="form-check-label" for="RadioNovecinolugar">
+                  No
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="vecinoLugarTrabajo"
+                  value="no lo se"
+                  id="RadioNolosevecinolugar"
+                />
+                <label class="form-check-label" for="RadioNolosevecinolugar">
+                  No lo sé
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card *ngIf="validarVecinoTrabajo()">
+            <mat-card-title>
+              ¿cómo se llama el sector donde ejerce su trabajo?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="col">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="NovecinoLugarTrabajo"
+                  placeholder="Nombre del sector donde trabaja"
+                />
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title>
+              ¿Hace parte de algún grupo social reconocido jurídicamente?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="col">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="GrupoSocialReconocido"
+                  placeholder="Negritudes, indigenas, desplazados, etc."
+                />
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+        </form>
+        <div class="mb-3 row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-9">
+            <button
+              type="button"
+              (click)="GuardarJuridico()"
+              class="btn btn-success float-end"
+            >
+              Guardar avance
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-step>
+    <!-- Formulario Minero Ambiental -->
+    <mat-step label="Minero Ambiental">
+      <div class="container">
+        <form [formGroup]="formAmbiental">
+          <br />
+
+          <mat-card>
+            <mat-card-title>
+              ¿Ha recibido capacitación en seguridad y salud en el trabajo ?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="capacitacionSeguridadSalud"
+                  value="Si"
+                  id="RadioSicapacitacion"
+                />
+                <label class="form-check-label" for="RadioSicapacitacion">
+                  Si, he recibido capacitación
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="capacitacionSeguridadSalud"
+                  value="No"
+                  id="RadioNocapacitacion"
+                />
+                <label class="form-check-label" for="RadioNocapacitacion">
+                  No, hasta la fecha ninguna
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="capacitacionSeguridadSalud"
+                  value="Aun no"
+                  id="RadioAunno"
+                />
+                <label class="form-check-label" for="RadioAunno">
+                  No recuerdo haber recibido capacitación
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br/>
+          <mat-card *ngIf="validarCapacitacion()">
+            <mat-card-title *ngIf="this.formAmbiental.controls['capacitacionSeguridadSalud'].value=='Si'; else elseBlock">
+              Si su respuesta es "Sí", ¿Qué tipo de capacitación ha recibido?
+            </mat-card-title>
+            <ng-template #elseBlock>
+              <mat-card-title >
+                Si su respuesta es "No", ¿Qué tipo de capacitación ha recibido?
+              </mat-card-title>
+            </ng-template>
+            <mat-card-content>
+              <div class="col">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="respCapacitacionseguridadsalud"
+                  placeholder="Tipo de capacitación recibida"
+                />
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title>
+              ¿Ha recibido capacitación en tecnologías limpias para desarrollar su trabajo?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="capacitacionTecnologiasLimpias"
+                  value="Si"
+                  id="RadioSiTecnoLimpia"
+                />
+                <label class="form-check-label" for="RadioSiTecnoLimpia">
+                  Si, he recibido capacitación en tecnologias limpias
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="capacitacionTecnologiasLimpias"
+                  value="No"
+                  id="RadioNoTecnoLimpia"
+                />
+                <label class="form-check-label" for="RadioNoTecnoLimpia">
+                  No, hasta la fecha ninguna capacitación sobre el tema
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="capacitacionTecnologiasLimpias"
+                  value="No recuerdo"
+                  id="RadioNoRecuerdoTecnoLimpias"
+                />
+                <label class="form-check-label" for="RadioNoRecuerdoTecnoLimpias">
+                  No recuerdo haber recibido capacitación
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br>
+          <mat-card>
+            <mat-card-title>
+              ¿Ha recibido capacitación en tecnologías limpias para desarrollar su trabajo?
+            </mat-card-title>
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="respCapacitacionTecnologiasLimpias"
+                  value="ANM"
+                  id="RadioANM"
+                />
+                <label class="form-check-label" for="RadioANM">
+                  Agencia Nacional de Mineía (ANM)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="respCapacitacionTecnologiasLimpias"
+                  value="UPME"
+                  id="RadioUPME"
+                />
+                <label class="form-check-label" for="RadioUPME">
+                  Unidad de Planeación Minero Energética (UPME)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  formControlName="respCapacitacionTecnologiasLimpias"
+                  value="ONG"
+                  id="RadioONG"
+                />
+                <label class="form-check-label" for="RadioONG">
+                  Organización No Gubernamental (ONG)  Otro
+                </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br>
+          <mat-card *ngIf="this.formAmbiental.controls['respCapacitacionTecnologiasLimpias'].value=='ONG'">
+            <mat-card-title >
+              Si su respuesta es ONG u Otro,por favor indique su nombre, si lo recuerda.
+            </mat-card-title>
+                       <mat-card-content>
+              <div class="col">
+                <input
+                  class="form-control"
+                  type="text"
+                  formControlName="respCapacitacionONG"
+                  placeholder="Ingrese el nombre de la ONG que lo capacitó"
+                />
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </form>
+      </div>
+      <div class="mb-3 row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+          <button
+            type="button"
+            (click)="GuardarTecnico()"
+            class="btn btn-success float-end"
+          >
+            Guardar avance
+          </button>
+        </div>
+      </div>
+    </mat-step>
+    <!-- Documentacion -->
+    <mat-step label="Documentación">
+      <div class="container">
+        <form [formGroup]="documentacion">
+          <mat-card>
+            <mat-card-title
+              >Actualmente YA cuenta con alguno de esto
+              documentos</mat-card-title
+            >
+            <mat-card-content>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="RUT"
+                  type="checkbox"
+                  id="chackRUT"
+                />
+                <label class="form-check-label" for="chackRUT">
+                  RUT (Registro Único Tributario)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="SISBEN"
+                  type="checkbox"
+                  id="checkSISBEN"
+                />
+                <label class="form-check-label" for="checkSISBEN">
+                  SISBEN (Puntaje)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="RUCOM"
+                  type="checkbox"
+                  id="checkRUCOM"
+                />
+                <label class="form-check-label" for="checkRUCOM"> RUCOM </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="origenMineral"
+                  type="checkbox"
+                  id="checkorigenMineral"
+                />
+                <label class="form-check-label" for="checkorigenMineral"> Certificado de Origen del mineral </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="ninguna"
+                  type="checkbox"
+                  id="checkninguna"
+                />
+                <label class="form-check-label" for="checkninguna"> Ninguna </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="capacitaciones"
+                  type="checkbox"
+                  id="checkcapacitaciones"
+                />
+                <label class="form-check-label" for="checkcapacitaciones"> Certificados de capacitaciones </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  formControlName="otro"
+                  type="checkbox"
+                  id="checkotro"
+                />
+                <label class="form-check-label" for="checkotro"> Otro tipo </label>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+        </form>
+      </div>
+      <div class="mb-3 row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+          <button
+            type="button"
+            (click)="GuardarTecnico()"
+            class="btn btn-success float-end"
+          >
+            Finalizar
+          </button>
+        </div>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
 </div>
 <div class="container">
-    <span>Valor formulario</span>
-    <pre> {{datosBasicos.value |json}} </pre>
-    <span>Valor formulario</span>
-    <pre> {{formEconomico.value |json}} </pre>
+  <span>Valor formulario</span>
+  <pre> {{ formAmbiental.value | json }} </pre>
 </div>

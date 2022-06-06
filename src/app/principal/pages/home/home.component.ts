@@ -19,19 +19,16 @@ import { AuthService } from '../../../auth/auth/servicios/auth.service';
 export class HomeComponent implements OnInit {
   
   usuarioAuth=false
+  usuarioActual:string=''
+  
   constructor(private authService:AuthService,
-              private router:Router) { console.log("home constructor") }
+              private router:Router) { }
 
   ngOnInit(): void {
-    this.authService.Usuario
     this.checkuser()
-    console.log("home init")
-    console.log(this.usuario)
+    this.usuarioActual=localStorage.getItem('nombreMinero') || ''; 
   }
   
-  get usuario(){
-    return this.authService.Usuario;
-  }
   toggle(){
     var x = document.getElementById("navDemo");
     if (x!.className.indexOf("w3-show") == -1) {
@@ -41,9 +38,8 @@ export class HomeComponent implements OnInit {
     }
   }
   checkuser(){
-    const tamUser=Object.keys(this.usuario).length; 
-    console.log(tamUser)
-    if(tamUser!=0){
+    const tamUser=localStorage.getItem('nombreMinero'); 
+    if(tamUser != null){
       this.usuarioAuth=true
     }
   }

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrlAuth:'https://webappmineros.herokuapp.com/api/auth/',
-  baseUrlQuerys:'https://webappmineros.herokuapp.com/api/querys'
+  baseUrlAuth:'http://localhost:3000/api/auth/',
+  baseUrlQuerys:'http://localhost:3000/api/querys'
 };
 
 /*

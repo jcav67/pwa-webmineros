@@ -37,12 +37,12 @@
     <a routerLink="/home" class="w3-bar-item w3-button  w3-hide-small w3-padding-large w3-white">Home</a>
     <a routerLink="/home/formularios" *ngIf="usuarioAuth" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Formularios</a>
     <a routerLink="/home/mapas"   class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Mapa interactivo</a>
-    <a routerLink="/home" *ngIf="usuarioAuth" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Registro de actividad</a>    
+    <a routerLink="/home/actividad" *ngIf="usuarioAuth" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Registro de actividad</a>    
     <a routerLink="/auth/entrar" *ngIf="! usuarioAuth" class="w3-right w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Iniciar Sesión</a>
     <a routerLink="/auth/registro" *ngIf="! usuarioAuth" class="w3-right w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Registrarse</a>
     <a (click)="logout()" *ngIf="usuarioAuth" class="w3-right w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Cerrar sesión</a>
-    <a  routerLink="/home" *ngIf="usuarioAuth"   class="w3-right w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
-      {{usuario.nombre }}
+    <a  routerLink="/home/perfil" *ngIf="usuarioAuth"   class="w3-right w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+      {{usuarioActual }}
     </a>
   </div>
 
@@ -51,10 +51,10 @@
     <a routerLink="/home" class="w3-bar-item w3-button w3-padding-large">Home</a>
     <a routerLink="/home/formularios" *ngIf="usuarioAuth"  class="w3-bar-item w3-button w3-padding-large">Formularios</a>
     <a routerLink="/home/mapas" class="w3-bar-item w3-button w3-padding-large">Mapa interactivo</a>
-    <a routerLink="/home" *ngIf="usuarioAuth" class="w3-bar-item w3-button w3-padding-large">Registro de actividad</a>
+    <a routerLink="/home/actividad" *ngIf="usuarioAuth" class="w3-bar-item w3-button w3-padding-large">Registro de actividad</a>
     <br>
     <hr>
-    <a routerLink="/home" *ngIf="usuarioAuth"   class="w3-bar-item w3-button w3-padding-large">{{usuario.nombre }}</a>
+    <a routerLink="/home/perfil" *ngIf="usuarioAuth"   class="w3-bar-item w3-button w3-padding-large">{{usuarioActual }}</a>
     <a (click)="logout()" *ngIf="usuarioAuth" class="w3-bar-item w3-button w3-padding-large">Cerrar sesión</a>
     <a routerLink="/auth/registro"  *ngIf="! usuarioAuth" class="w3-bar-item w3-button w3-padding-large">Registro de usuario</a>
     <a routerLink="/auth/entrar" *ngIf="! usuarioAuth" class="w3-bar-item w3-button w3-padding-large">Iniciar Sesión</a>
@@ -92,11 +92,11 @@
         style="width:100px;"> </a>
 
     <a  class="navbar-brand" href="https://www.corantioquia.gov.co/Paginas/Inicio.aspx" target="_blank">
-      <img src="https://www.corantioquia.gov.co/Style%20Library/Imagenes/logo-corantioquia-3.png"
+      <img src="https://www.corantioquia.gov.co/wp-content/uploads/2021/09/logo_corantioquia.png"
         alt="Logo" style="width:100px;"> </a>
 
     <a  class="navbar-brand"href="https://acmineria.com.co/" target="_blank">
-      <img src="https://www.cerrejon.com/wp-content/uploads/2018/02/ACM-logo.png"  alt="Logo"
+      <img src="https://acmineria.com.co/acm/wp-content/themes/acm-template/img/logo-acm-2.png"  alt="Logo"
         style="width:100px;"> </a>
 
   </div>

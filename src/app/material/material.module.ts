@@ -1,29 +1,32 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatCardModule } from '@angular/material/card';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import { NgModule } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 
 @NgModule({
-  exports: [MatStepperModule,
-    MatFormFieldModule,
-    MatTableModule,
-    MatRadioModule,
-    MatDatepickerModule,
+  exports: [
+    MatButtonModule,
     MatCardModule,
-    MatSidenavModule,
-    MatToolbarModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
     MatIconModule,
-    MatButtonModule
+    MatRadioModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatStepperModule,
+    MatTableModule,
+    MatToolbarModule,
   ]
 })
 export class MaterialModule { }

@@ -28,7 +28,9 @@ export class AuthService {
       tap(resp => {
         if(resp.ok){
           localStorage.setItem('token',resp.jwt!)          
+          localStorage.setItem('email',resp.email!)          
           localStorage.setItem('idMinero',resp.idMinero!)
+          localStorage.setItem('nombreMinero',resp.nombre!)
           this._usuario= {
             idMinero:resp.idMinero,
             nombre: resp.nombre
@@ -69,7 +71,9 @@ export class AuthService {
       tap(resp => {
         if(resp.ok){
           localStorage.setItem('token',resp.jwt!)
+          localStorage.setItem('email',resp.email!) 
           localStorage.setItem('idMinero',resp.idMinero!)
+          localStorage.setItem('nombreMinero',resp.nombre!)
           console.log(resp.nombre)
           this._usuario= {
             idMinero:resp.idMinero,
@@ -83,8 +87,7 @@ export class AuthService {
   }
 
   logOut(){
-    localStorage.removeItem('token')
-    localStorage.removeItem('idMinero')
+    localStorage.clear()
   }
 
   cargarGeoJson(){

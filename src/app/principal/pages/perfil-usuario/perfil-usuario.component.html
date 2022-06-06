@@ -1,0 +1,78 @@
+<div style="margin-top: 60px">
+  <div class="w3-container">
+    <form [formGroup]="frmperfilUsuario">
+      <div class="row justify-content-md-center">
+        <div class="col-md-4">
+          <label> Nombre</label>
+          <input
+            formControlName="strNombre"
+            class="w3-input w3-border"
+            id="Nombre"
+            type="text"
+            placeholder="Ingrese su nombre"
+          />
+          <br />
+          <label> Apellido</label>
+          <input
+            formControlName="strApellido"
+            class="w3-input w3-border"
+            type="text"
+            placeholder="Ingrese su apellido"
+          />
+          <br />
+          <label>Teléfono</label>
+          <input
+            formControlName="strTelefono"
+            class="w3-input w3-border"
+            type="text"
+            placeholder="Ingrese su Telefono"
+          />
+          <br />
+          <label>Tipo de documento</label>
+
+          <select class="form-control" formControlName="strTipoDocumento">
+            <option value="">-- Seleccione una opción --</option>
+            <option *ngFor="let tipo of tipoDocumento" [value]="tipo.valor">
+              {{ tipo.texto }}
+            </option>
+          </select>
+          <br />
+          <label> Número de documento</label>
+          <input
+            class="w3-input w3-border"
+            formControlName="strNumeroDocumento"
+            type="number"
+            placeholder="Ingrese su numero de documento"
+            min="1"
+          />
+          <label
+            ><span style="color: grey; font-size: 10px">
+              No use espacios o caracteres especiales</span
+            ></label
+          >
+          <br />
+          <label>Género</label>
+          <select class="form-control" formControlName="strGenero">
+            <option value="">-- Seleccione una opción --</option>
+            <option *ngFor="let tipo of lstGenero" [value]="tipo.valor">
+              {{ tipo.texto }}
+            </option>
+          </select>
+          <br />
+          <label>Tipo persona</label>
+          <select class="form-control" formControlName="strTipoPersona">
+            <option value="">-- Seleccione una opción --</option>
+            <option *ngFor="let tipo of tipoPersona" [value]="tipo.valor">
+              {{ tipo.texto }}
+            </option>
+          </select>
+          <br />
+          <button class="btn btn-success form-control" (click)="ActualizarInformacion()" >Guardar</button>
+          <button class="btn btn-danger form-control mt-2">
+            Eliminar cuenta
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
