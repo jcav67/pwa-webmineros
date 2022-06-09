@@ -35,7 +35,6 @@ export class ActividadDiariaService {
   leerRegistroMinero(){
 
     const id=localStorage.getItem("idMinero");
-    console.log(id)
     const url=`${this._baseUrl}/minero/registrosMinero?id=${id}`
     
     return this.http.get<RespRegistroMinero>(url).pipe(

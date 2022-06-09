@@ -1,6 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { environment } from '../../../../src/environments/environment';
 import { ActividadDiariaService } from './actividad-diaria.service';
 
 describe('ActividadDiariaService', () => {

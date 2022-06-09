@@ -50,7 +50,7 @@ describe('PerfilUsuarioComponent', () => {
 
   });
 
-  test('prueba',()=>{
+  test('Guardado de datos en el local storage',()=>{
     const dummy={
       "ok": true,
       "DatosMinero": [
@@ -68,7 +68,6 @@ describe('PerfilUsuarioComponent', () => {
     const request=httpMock.expectOne('http://localhost:3000/api/querys/minero/datosminero?minero=5');
     request.flush(dummy)
     const Nombre = localStorage.getItem('perfilNombre');
-    console.log('este es el nombre del local storage',Nombre)
     expect(Nombre).toBe(dummy.DatosMinero[0].strNombre)
   })
 
