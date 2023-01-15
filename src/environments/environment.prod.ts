@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseUrlAuth:'https://webappmineros.herokuapp.com/api/auth/',
-  baseUrlQuerys:'https://webappmineros.herokuapp.com/api/querys'
+  baseUrlAuth:'https://despliegue-railwayminerosapp.up.railway.app/api/auth/',
+  baseUrlQuerys:'https://despliegue-railwayminerosapp.up.railway.app/api/querys'
 };

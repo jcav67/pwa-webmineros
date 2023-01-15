@@ -477,13 +477,13 @@ export class FormulariosComponent implements OnInit {
   }
 
   guardar(){
-    this.insertarMinero()
-    this.insertarEconomico()
-    this.insertarTecnico()
-    this.insertarSocial()
-    this.insertaJuridico()
-    this.insertarDocumentacion()
-    this.insertarAmbiental()
+    this.insertarMinero();
+    this.insertarEconomico();
+    this.insertarTecnico();
+    this.insertarSocial();
+    this.insertaJuridico();
+    this.insertarDocumentacion();
+    this.insertarAmbiental();
     
     } 
 

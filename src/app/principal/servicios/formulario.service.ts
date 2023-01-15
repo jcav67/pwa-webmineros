@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of, Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment.prod';
 import {
   formReponse,
   RespAmbiental,
@@ -12,7 +13,6 @@ import {
   RespDatosTecnico,
   RespDocumentacion,
 } from 'src/app/auth/interfaces/formularios.interface';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +23,6 @@ export class FormularioService {
   constructor(private http: HttpClient) {}
 
   leerFormEconomico(id: number) {
-    console.log(id);
     const url = `${this._baseUrl}/minero/economico?minero=${id}`;
 
     return this.http
@@ -38,7 +37,6 @@ export class FormularioService {
     intCompraVenta: number,
     strLugarVenta: string
   ) {
-    console.log('angular id minero',localStorage.getItem('idMinero'))
     const url = `${this._baseUrl}/minero/frmEconomico`;
     const body = {
       intIdminero:localStorage.getItem('idMinero'),
@@ -103,7 +101,6 @@ export class FormularioService {
   }
 
   leerFormMinero(id: number) {
-    console.log(id);
     const url = `${this._baseUrl}/minero/datosminero?minero=${id}`;
 
     return this.http.get<RespDatosMinero>(url).pipe(map((resp) => resp.DatosMinero));
@@ -220,7 +217,6 @@ export class FormularioService {
   ){
 
     const url = `${this._baseUrl}/minero/frmDocumentacion`;
-    console.log('otro',bitOtro)
     const body = {
       intIdminero:localStorage.getItem('idMinero'),
       bitRut,

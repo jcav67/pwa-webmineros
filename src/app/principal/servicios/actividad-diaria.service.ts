@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { formReponse, RespRegistroMinero } from 'src/app/auth/interfaces/formularios.interface';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ActividadDiariaService {
-  private _baseUrl: string = 'http://localhost:3000/api/querys';
+  private _baseUrl: string = environment.baseUrlQuerys;
 
   constructor(private http: HttpClient) {}
 

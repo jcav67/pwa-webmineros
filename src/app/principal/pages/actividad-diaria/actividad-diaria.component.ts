@@ -9,6 +9,8 @@ import {
 import { MatTable } from '@angular/material/table';
 import Swal from 'sweetalert2';
 import { ActividadDiariaService } from '../../servicios/actividad-diaria.service';
+
+
 interface Registro {
   intIdRegistroMinero:number;
   fltCantidad: number;
@@ -63,9 +65,9 @@ export class ActividadDiariaComponent implements OnInit {
   ngOnInit(): void {}
   @ViewChild(MatTable) table!: MatTable<Registro>;
 
-  leerRegistroMinero() {
+  async leerRegistroMinero () {
     this.dataSource=[]
-    this.actividadService.leerRegistroMinero().subscribe((actividades) => {
+     this.actividadService.leerRegistroMinero().subscribe((actividades) => {
       for (let actividad of actividades) {
         this.dataSource.push({
           intIdRegistroMinero:actividad.intIdRegistroMinero,
@@ -74,8 +76,8 @@ export class ActividadDiariaComponent implements OnInit {
           dtmFechaRecoleccion: actividad.strFechaRecoleccion,
           materialRecolectado: actividad.strMaterialRecolectado,
         });
-        this.table.renderRows();
       }
+      this.table.renderRows();
     });
   }
 
