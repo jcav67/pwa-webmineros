@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {catchError, map, tap}from 'rxjs/operators'
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../environments/environment.prod';
 import { authResponse, Usuario } from '../../interfaces/auth.interface';
 import { of } from 'rxjs';
 

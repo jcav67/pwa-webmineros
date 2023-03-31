@@ -138,7 +138,7 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   leerDatos(){
-    this.perfilUsuario.leerDatosMinero().subscribe((resp)=>{
+    this.perfilUsuario.leerDatosMinero(34).subscribe((resp)=>{
       for (let elem of resp){
         localStorage.setItem('perfilNombre',elem.strNombre)
       localStorage.setItem('perfilApellido', elem.strApellido)

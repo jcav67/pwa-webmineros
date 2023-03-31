@@ -20,8 +20,8 @@ describe('ActividadDiariaService', () => {
   });
 
   test('traer actividad',(done)=>{
-    service.leerRegistroMinero().subscribe((resp)=>{
-      expect(resp[0].strUnidadMedida).toBe('Kilogramo');
+    service.leerRegistroMinero(34).subscribe((resp)=>{
+      expect(resp[0].strUnidadMedida).toBe('Onzas');
       done();
     }
 

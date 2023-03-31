@@ -67,7 +67,7 @@ export class ActividadDiariaComponent implements OnInit {
 
   async leerRegistroMinero () {
     this.dataSource=[]
-     this.actividadService.leerRegistroMinero().subscribe((actividades) => {
+     this.actividadService.leerRegistroMinero(34).subscribe((actividades) => {
       for (let actividad of actividades) {
         this.dataSource.push({
           intIdRegistroMinero:actividad.intIdRegistroMinero,

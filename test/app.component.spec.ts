@@ -17,7 +17,6 @@ describe('AppComponent', () => {
   it(`should have as title 'App Mineros PWA'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    console.log(`titulo de la app ${app.title}`)
-    expect(app.title).toEqual('pruebas');
+    expect(app.title).toEqual('App Mineros PWA');
   });
 });

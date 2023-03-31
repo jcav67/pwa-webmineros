@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { formReponse, RespRegistroMinero } from 'src/app/auth/interfaces/formularios.interface';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -33,14 +33,14 @@ export class ActividadDiariaService {
     );
   }
 
-  leerRegistroMinero(){
+  leerRegistroMinero(id:number){
 
-    const id=localStorage.getItem("idMinero");
+    //const id=localStorage.getItem("idMinero");
     const url=`${this._baseUrl}/minero/registrosMinero?id=${id}`
     
     return this.http.get<RespRegistroMinero>(url).pipe(
       map(resp=> resp.RegistroMinero )
-    )
+    ) 
   }
   eliminarRegistroMinero( id:number){
 

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { formReponse, RespDatosMineros } from 'src/app/auth/interfaces/formularios.interface';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -39,9 +39,9 @@ export class PerfilUsuarioService {
       catchError((err) => of(err.error.msg))
     );
   }
-  leerDatosMinero(){
+  leerDatosMinero(id:number){
 
-      const id=localStorage.getItem("idMinero");
+      //const id=localStorage.getItem("idMinero");
       const url=`${this._baseUrl}/minero/datosminero?minero=${id}`
       
       return this.http.get<RespDatosMineros>(url).pipe(
